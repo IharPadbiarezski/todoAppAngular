@@ -2,12 +2,12 @@
 <html ng-app="todosApp">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-    <script src="js/model.js"></script>
+    <script src="js/todo.js"></script>
     <script src="js/app.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body>
-    <div ng-controller="todosAppController" class="container">
+  <body ng-controller="todosAppController">
+    <div class="container">
 
         <h2>ToDo List</h2>
 
@@ -19,46 +19,52 @@
                 <th>Completed</th>
             </thead>
             <tbody>
-                <tr ng-repeat="">
-                    <td>hdbh</td>
-                    <td>hdbh</td>
-                    <td>hdbh</td>
-                    <td>hdbh</td>
+                <tr ng-repeat="task in tasks">
+                    <td>{{task.name}}</td>
+                    <td>{{task.description}}</td>
+                    <td>{{task.duedate}}</td>
+                    <td>{{task.completed}}</td>
                 </tr>
             </tbody>
         </table>
 
-        <form class="form-horizontal">
-            <div class="form-group row">
-                <label for="input1" class="col-sm-2 control-label">Name</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="taskName" placeholder="Task Name" ng-model="">
+        <div>
+            <form class="form-horizontal">
+                <div class="form-group row">
+                    <label for="input1" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="taskName" placeholder="Task Name" ng-model="newTask.name">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="input2" class="col-sm-2 control-label">Due Date</label>
-                <div class="col-sm-10">
-                    <input type="date" class="form-control" id="dueDate" ng-model="">
+    
+                <div class="form-group row">
+                    <label for="input2" class="col-sm-2 control-label">Due Date</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="dueDate" ng-model="newTask.duedate">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="input2" class="col-sm-2 control-label">Description</label>
-                <div class="col-sm-10">
-                    <textarea class="form-control" ng-model=""></textarea>
+    
+                <div class="form-group row">
+                    <label for="input2" class="col-sm-2 control-label">Description</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" ng-model="newTask.description"></textarea>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="input2" class="col-sm-2 control-label">Completed</label>
-                <div class="col-sm-1">
-                    <input type="checkbox" class="checkbox" ng-model="newTask.completed" />
+    
+                <div class="form-group row">
+                    <label for="input2" class="col-sm-2 control-label">Completed</label>
+                    <div class="col-sm-1">
+                        <input type="checkbox" class="checkbox" ng-model="newTask.completed" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-success" ng-click="addButtonClick()">Add</button>
+    
+                <div class="form-group row">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default" ng-click="addButtonClick()">Add</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
   </body>
 </html>
