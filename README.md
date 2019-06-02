@@ -1,4 +1,4 @@
 # todoAppAngular
 todos app
 
--Link: https://iharpadbiarezski.github.io/todoAppAngular/
+-Link:  https://iharpadbiarezski.github.io/todoAppAngularJs/
